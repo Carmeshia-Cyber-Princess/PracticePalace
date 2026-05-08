@@ -1,0 +1,24 @@
+name: "CodeQL Analysis"
+
+on:
+  pull_request:
+    branches: [ main ]  # Indented under pull_request
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write  # Indented under permissions
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'python' # Must be nested under the step above
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
