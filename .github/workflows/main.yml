@@ -1,0 +1,14 @@
+ - name: Secret Scanning
+  # You may pin to the exact commit or the version.
+  # uses: geekNero/secret-scanning@f10326539d3d102a31f70586c6f15cdd3fd6677f
+   uses: geekNero/secret-scanning@v1
+   with:
+    # Comma-separated list of files to exclude
+       file-exclusions: # optional, default is 0
+    # Comma-separated list of hashes to exclude
+       hash-exclusions: # optional, default is 0
+    # Comma-separated list of plugins to exclude 
+       plugin-exclusions: # optional, default is 0
+    # Space-separated list of custom-regexes to include
+      custom-regexes: # optional, default is 0
+          
