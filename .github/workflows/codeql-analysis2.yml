@@ -1,0 +1,31 @@
+name: "CodeQL Analysis"
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      # Required to post results to the Security tab
+      security-events: write
+      # Required for checkout
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Updated to v4 for Node 20 support
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'javascript' # Specify your language(s) here
+
+      # If you use C#, Java, or C++, include this:
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
